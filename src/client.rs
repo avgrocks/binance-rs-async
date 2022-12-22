@@ -27,7 +27,7 @@ impl Client {
     /// Host is mandatory
     pub fn new(api_key: Option<String>, secret_key: Option<String>, host: String) -> Self {
         let builder: reqwest::ClientBuilder = reqwest::ClientBuilder::new();
-        let builder = builder.timeout(Duration::from_secs(5));
+        let builder = builder.timeout(Duration::from_secs(10));
         Client {
             // Does it ever make sense for api_key and secret_key to be ""?
             api_key: api_key.unwrap_or_else(|| "".into()),
